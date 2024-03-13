@@ -21,6 +21,47 @@
   box-shadow: 0 8px 40px 0 rgba(0, 0, 0, 0) !important;
 }
 
+
+.notion-title {
+  font-weight: 600;
+  margin: 0px;
+  white-space: pre-line;
+  text-align: center;
+  font-size: clamp(2.25rem, 3vw, 4rem);
+}
+
+.notion-collection-row-property .notion-property {
+  display: flex;
+  justify-content: center;
+  color: transparent;
+}
+
+.notion-asset-wrapper img {
+  border-radius: 16px;
+}
+
+
+/* .notion-nav-header-rhs.breadcrumbs {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  text-decoration: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+  border: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  transition: color 0.25s ease 0s;
+  color: rgb(138, 137, 137);
+  font-size: clamp(1rem, 2vw, 1.15rem);
+} */
+
+
+
+
+
 .notion {
   --notion-max-width: 720px;
   --notion-header-height: 54px;

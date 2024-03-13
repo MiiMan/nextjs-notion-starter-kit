@@ -46,21 +46,24 @@ export default siteConfig({
   //   '/foo': '067dd719a912471ea9a3ac10710e7fdf',
   //   '/bar': '0be6efce9daf42688f65c76b89f8eb27'
   // }
-  pageUrlOverrides: null,
-  isSearchEnabled: false,
+  pageUrlOverrides: {
+      '/knowledge_base': '068fa05c963949048ea24ad0034564c5',
+      '/opportunities': '61fa4146e50343488b2961b1ad0a8479'
+  },
+  isSearchEnabled: true,
 
   // whether to use the default notion navigation style or a custom one with links to
   // important pages. To use `navigationLinks`, set `navigationStyle` to `custom`.
-  navigationStyle: 'default'
+  navigationStyle: 'default',
   // navigationStyle: 'custom',
   // navigationLinks: [
   //   {
-  //     title: 'About',
-  //     pageId: 'f1199d37579b41cbabfc0b5174f4256a'
+  //     title: 'База знаний',
+  //     pageId: '068fa05c963949048ea24ad0034564c5'
   //   },
   //   {
-  //     title: 'Contact',
-  //     pageId: '6a29ebcb935a4f0689fe661ab5f3b8d1'
+  //     title: 'Витрина возможностей',
+  //     pageId: '61fa4146e50343488b2961b1ad0a8479'
   //   }
   // ]
 })
