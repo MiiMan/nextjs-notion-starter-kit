@@ -41,6 +41,18 @@
 }
 
 
+.notion-asset-caption {
+  color: rgb(138, 137, 137);
+}
+
+.notion-toggle.notion-h {
+  display: inline;
+}
+
+.notion-toggle {
+  padding-bottom: 16px;
+}
+
 /* .notion-nav-header-rhs.breadcrumbs {
   display: inline-flex;
   flex-direction: row;
