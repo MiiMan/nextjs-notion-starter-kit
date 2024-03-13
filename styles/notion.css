@@ -7,6 +7,20 @@
  * places to add some flare.
  */
 
+ .dark-mode { 
+  --bg-color: #1C1B1A;
+ }
+
+ .notion-page-icon-hero.notion-page-icon-image span,
+ .notion-page-icon-hero.notion-page-icon-image img {
+   border-radius: 0% !important;
+ }
+
+ .notion-page-icon-hero.notion-page-icon-image {
+  border-radius: 0% !important;
+  box-shadow: 0 8px 40px 0 rgba(0, 0, 0, 0) !important;
+}
+
 .notion {
   --notion-max-width: 720px;
   --notion-header-height: 54px;
