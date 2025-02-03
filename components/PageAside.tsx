@@ -1,8 +1,15 @@
-import * as React from 'react'
+import { type Block, type ExtendedRecordMap } from 'notion-types'
 
-import { Block, ExtendedRecordMap } from 'notion-types'
+import { getPageTweet } from '@/lib/get-page-tweet'
 
-export const PageAside: React.FC<{
+import { PageActions } from './PageActions'
+import { PageSocial } from './PageSocial'
+
+export function PageAside({
+  block,
+  recordMap,
+  isBlogPost
+}: {
   block: Block
   recordMap: ExtendedRecordMap
   isBlogPost: boolean
