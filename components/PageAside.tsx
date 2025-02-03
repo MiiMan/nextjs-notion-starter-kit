@@ -1,10 +1,5 @@
 import { type Block, type ExtendedRecordMap } from 'notion-types'
 
-import { getPageTweet } from '@/lib/get-page-tweet'
-
-import { PageActions } from './PageActions'
-import { PageSocial } from './PageSocial'
-
 export function PageAside({
   block,
   recordMap,
@@ -13,6 +8,6 @@ export function PageAside({
   block: Block
   recordMap: ExtendedRecordMap
   isBlogPost: boolean
-}> = () => {
-  return null
+}) {
+    return null
 }

@@ -469,3 +469,72 @@
 .notion-equation.notion-equation-block{
   align-items: center;
 }
+
+.notion-collection-card-cover {
+  width: auto;
+  height: 100%;
+  aspect-ratio: 3 / 2;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #222;
+}
+
+.notion-collection-card-cover img {
+  width: 100% !important;  /* Заполняем всю ширину контейнера */
+  height: auto !important; /* Позволяем высоте масштабироваться */
+  min-height: 100%; /* Гарантируем, что высота заполнит контейнер */
+  object-fit: cover !important; /* Обрезает лишнее, но заполняет контейнер */
+}
+
+.notion-nav-header-rhs {
+  display: flex;
+  flex-wrap: nowrap; /* Запрещает перенос элементов */
+  overflow-x: auto; /* Разрешает горизонтальный скролл */
+  white-space: nowrap; /* Предотвращает перенос строк */
+  gap: 10px; /* Расстояние между элементами */
+  max-width: 100%; /* Чтобы не выходило за границы */
+}
+
+.notion-nav-header {
+  display: flex;
+  justify-content: space-between; /* Разделяет элементы */
+  align-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 10px;
+  max-width: 100%;
+}
+
+.breadcrumbs {
+  flex-shrink: 1; /* Позволяет уменьшаться, но не исчезать */
+  min-width: 0; /* Разрешает сокращение при нехватке места */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 40%; /* Ограничиваем ширину, чтобы не перетягивал все пространство */
+}
+
+.notion-nav-header-rhs {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  overflow-x: auto;
+  white-space: nowrap;
+  gap: 10px;
+  max-width: 60%; /* Остаток ширины */
+  flex-shrink: 0; /* Не даем уменьшаться */
+  scrollbar-width: thin;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+  .breadcrumbs {
+    max-width: 50%; /* Больше места на маленьких экранах */
+  }
+  .notion-nav-header-rhs {
+    max-width: 50%;
+  }
+}
