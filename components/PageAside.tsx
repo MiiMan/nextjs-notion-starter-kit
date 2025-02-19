@@ -1,13 +1,13 @@
 import { type Block, type ExtendedRecordMap } from 'notion-types'
 
 export function PageAside({
-  block,
-  recordMap,
-  isBlogPost
+  _block,
+  _recordMap,
+  _isBlogPost
 }: {
-  block: Block
-  recordMap: ExtendedRecordMap
-  isBlogPost: boolean
+  _block: Block
+  _recordMap: ExtendedRecordMap
+  _isBlogPost: boolean
 }) {
-    return null
+  return null
 }
