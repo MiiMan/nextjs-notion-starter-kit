@@ -127,7 +127,7 @@
 
 .notion-gallery-grid-size-large {
   grid-template-columns: repeat(auto-fill, minmax(315px, 1fr)) !important;
-  gap: 4vmin;
+  gap: 4vmin !important;
 }
 
 .notion-gallery-grid .notion-page-icon-inline {
