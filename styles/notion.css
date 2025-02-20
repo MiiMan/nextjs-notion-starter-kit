@@ -120,14 +120,14 @@
 }
 
 .notion-gallery-grid {
-  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   grid-gap: 6vmin;
   gap: 6vmin;
 }
 
 .notion-gallery-grid-size-large {
   grid-template-columns: repeat(auto-fill, minmax(315px, 1fr)) !important;
-  gap: 4vmin !important;
+  gap: 3vmin;
 }
 
 .notion-gallery-grid .notion-page-icon-inline {
@@ -546,14 +546,4 @@
   .notion-nav-header-rhs {
     max-width: 50%;
   }
-}
-
-.notion-collection-card-cover span{
-  position: static !important;
-}
-
-.notion-gallery-grid {
-  grid-template-columns: repeat(auto-fill, minmax(315px, 1fr));
-  grid-gap: 6vmin;
-  gap: 6vmin;
 }
