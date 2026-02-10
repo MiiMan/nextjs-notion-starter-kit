@@ -8,6 +8,7 @@ import { FaZhihu } from '@react-icons/all-files/fa/FaZhihu'
 import * as React from 'react'
 
 import * as config from '@/lib/config'
+import { useDarkMode } from '@/lib/use-dark-mode'
 
 import styles from './styles.module.css'
 
@@ -16,6 +17,7 @@ import styles from './styles.module.css'
 export function FooterImpl() {
   const [_, setHasMounted] = React.useState(false)
   const currentYear = new Date().getFullYear()
+  const { toggleDarkMode } = useDarkMode()
 
   const onToggleDarkMode = React.useCallback(
     (e: any) => {

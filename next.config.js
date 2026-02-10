@@ -8,8 +8,17 @@ const withBundleAnalyzer = bundleAnalyzer({
   enabled: process.env.ANALYZE === 'true'
 })
 
+const dirname = path.dirname(fileURLToPath(import.meta.url))
+
 export default withBundleAnalyzer({
+  output: 'standalone',
   staticPageGenerationTimeout: 300,
+
+  // Пустой turbopack убирает ошибку «webpack config and no turbopack config».
+  // Алиасы react/react-dom не задаём: Turbopack не поддерживает абсолютные пути,
+  // разрешение из node_modules по умолчанию достаточно (кроме случая pnpm link).
+  turbopack: {},
+
   images: {
     remotePatterns: [
       { protocol: 'https', hostname: 'www.notion.so' },
@@ -28,7 +37,6 @@ export default withBundleAnalyzer({
     // Workaround for ensuring that `react` and `react-dom` resolve correctly
     // when using a locally-linked version of `react-notion-x`.
     // @see https://github.com/vercel/next.js/issues/50391
-    const dirname = path.dirname(fileURLToPath(import.meta.url))
     config.resolve.alias.react = path.resolve(dirname, 'node_modules/react')
     config.resolve.alias['react-dom'] = path.resolve(
       dirname,

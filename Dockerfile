@@ -1,22 +1,35 @@
-# Этап сборки приложения
-FROM node:18-alpine as builder
+# Сборка приложения
+FROM node:20-alpine AS builder
 
 WORKDIR /app
-COPY package*.json ./
-RUN npm ci
+
+# Установка pnpm
+RUN corepack enable && corepack prepare pnpm@latest --activate
+
+COPY package.json pnpm-lock.yaml* ./
+RUN pnpm install --frozen-lockfile
+
 COPY . .
-RUN npm run build
+RUN pnpm run build
 
-# Финальный этап с Nginx
-FROM nginx:alpine
+# Финальный образ
+FROM node:20-alpine AS runner
 
-# Копируем собранные файлы Next.js
-COPY --from=builder /app/.next/static /usr/share/nginx/html/_next/static
-COPY --from=builder /app/public /usr/share/nginx/html/
+WORKDIR /app
 
-# Копируем конфигурацию Nginx
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+ENV NODE_ENV=production
+ENV NEXT_TELEMETRY_DISABLED=1
 
-EXPOSE 80
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
 
-CMD ["nginx", "-g", "daemon off;"]
+# Копируем standalone-сборку
+COPY --from=builder /app/public ./public
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+
+USER nextjs
+
+EXPOSE 3000
+
+CMD ["node", "server.js"]
