@@ -233,7 +233,11 @@ export function NotionPage({
 
   const pageAside = React.useMemo(
     () => (
-      <PageAside _block={block} _recordMap={recordMap} _isBlogPost={isBlogPost} />
+      <PageAside
+        _block={block!}
+        _recordMap={recordMap!}
+        _isBlogPost={isBlogPost}
+      />
     ),
     [block, recordMap, isBlogPost]
   )
