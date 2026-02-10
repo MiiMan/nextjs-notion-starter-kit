@@ -17,6 +17,14 @@ export function FooterImpl() {
   const [_, setHasMounted] = React.useState(false)
   const currentYear = new Date().getFullYear()
 
+  const onToggleDarkMode = React.useCallback(
+    (e: any) => {
+      e.preventDefault()
+      toggleDarkMode()
+    },
+    [toggleDarkMode]
+  )
+
   React.useEffect(() => {
     setHasMounted(true)
   }, [])
