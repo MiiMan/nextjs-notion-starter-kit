@@ -7,6 +7,72 @@
  * places to add some flare.
  */
 
+ .dark-mode { 
+  --bg-color: #1C1B1A;
+ }
+
+ .notion-page-icon-hero.notion-page-icon-image span,
+ .notion-page-icon-hero.notion-page-icon-image img {
+   border-radius: 0% !important;
+ }
+
+ .notion-page-icon-hero.notion-page-icon-image {
+  border-radius: 0% !important;
+  box-shadow: 0 8px 40px 0 rgba(0, 0, 0, 0) !important;
+}
+
+
+.notion-title {
+  font-weight: 600;
+  margin: 0px;
+  white-space: pre-line;
+  text-align: center;
+  font-size: clamp(2.25rem, 3vw, 4rem);
+}
+
+.notion-collection-row-property .notion-property {
+  display: flex;
+  justify-content: center;
+}
+
+.notion-asset-wrapper img {
+  border-radius: 16px;
+}
+
+
+.notion-asset-caption {
+  color: rgb(138, 137, 137);
+}
+
+.notion-toggle.notion-h {
+  display: inline;
+}
+
+.notion-toggle {
+  padding-bottom: 16px;
+}
+
+/* .notion-nav-header-rhs.breadcrumbs {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  text-decoration: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+  border: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  transition: color 0.25s ease 0s;
+  color: rgb(138, 137, 137);
+  font-size: clamp(1rem, 2vw, 1.15rem);
+} */
+
+
+
+
+
 .notion {
   --notion-max-width: 720px;
   --notion-header-height: 54px;
@@ -54,9 +120,14 @@
 }
 
 .notion-gallery-grid {
-  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   grid-gap: 6vmin;
   gap: 6vmin;
+}
+
+.notion-gallery-grid-size-large {
+  grid-template-columns: repeat(auto-fill, minmax(315px, 1fr)) !important;
+  gap: 3vmin;
 }
 
 .notion-gallery-grid .notion-page-icon-inline {
@@ -402,4 +473,83 @@
 
 .notion-equation.notion-equation-block{
   align-items: center;
+}
+
+.notion-collection-card-cover {
+  width: auto;
+  height: 100%;
+  aspect-ratio: 3 / 2;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #222;
+}
+
+.notion-collection-card-cover span{
+  position: static !important;
+}
+
+.notion-collection-card-cover img {
+  width: 100% !important;  /* Заполняем всю ширину контейнера */
+  height: auto !important; /* Позволяем высоте масштабироваться */
+  min-height: 100%; /* Гарантируем, что высота заполнит контейнер */
+  object-fit: cover !important; /* Обрезает лишнее, но заполняет контейнер */
+}
+
+.notion-nav-header-rhs {
+  display: flex;
+  flex-wrap: nowrap; /* Запрещает перенос элементов */
+  overflow-x: auto; /* Разрешает горизонтальный скролл */
+  white-space: nowrap; /* Предотвращает перенос строк */
+  gap: 10px; /* Расстояние между элементами */
+  max-width: 100%; /* Чтобы не выходило за границы */
+}
+
+.notion-nav-header {
+  display: flex;
+  justify-content: space-between; /* Разделяет элементы */
+  align-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 10px;
+  max-width: 100%;
+}
+
+.breadcrumbs {
+  flex-shrink: 1; /* Позволяет уменьшаться, но не исчезать */
+  min-width: 0; /* Разрешает сокращение при нехватке места */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 40%; /* Ограничиваем ширину, чтобы не перетягивал все пространство */
+}
+
+.notion-nav-header-rhs {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  overflow-x: auto;
+  white-space: nowrap;
+  gap: 10px;
+  max-width: 60%; /* Остаток ширины */
+  flex-shrink: 0; /* Не даем уменьшаться */
+  scrollbar-width: thin;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+  .breadcrumbs {
+    max-width: 50%; /* Больше места на маленьких экранах */
+  }
+  .notion-nav-header-rhs {
+    max-width: 50%;
+  }
+}
+
+@media (min-width: 1300px) and (min-height: 300px) {
+  .notion-page-content-has-aside {
+      width: 100% !important;
+  }
 }

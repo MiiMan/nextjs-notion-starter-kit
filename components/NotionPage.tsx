@@ -23,14 +23,12 @@ import { searchNotion } from '@/lib/search-notion'
 import { useDarkMode } from '@/lib/use-dark-mode'
 
 import { Footer } from './Footer'
-import { GitHubShareButton } from './GitHubShareButton'
 import { Loading } from './Loading'
 import { NotionPageHeader } from './NotionPageHeader'
 import { Page404 } from './Page404'
 import { PageAside } from './PageAside'
 import { PageHead } from './PageHead'
 import styles from './styles.module.css'
-
 // -----------------------------------------------------------------------------
 // dynamic imports for optional components
 // -----------------------------------------------------------------------------
@@ -231,16 +229,11 @@ export function NotionPage({
   const isBlogPost =
     block?.type === 'page' && block?.parent_table === 'collection'
 
-  const showTableOfContents = !!isBlogPost
   const minTableOfContentsItems = 3
 
   const pageAside = React.useMemo(
     () => (
-      <PageAside
-        block={block!}
-        recordMap={recordMap!}
-        isBlogPost={isBlogPost}
-      />
+      <PageAside _block={block} _recordMap={recordMap} _isBlogPost={isBlogPost} />
     ),
     [block, recordMap, isBlogPost]
   )
@@ -308,7 +301,7 @@ export function NotionPage({
           styles.notion,
           pageId === site.rootNotionPageId && 'index-page'
         )}
-        darkMode={isDarkMode}
+        darkMode={true}
         components={components}
         recordMap={recordMap}
         rootPageId={site.rootNotionPageId}
@@ -316,7 +309,7 @@ export function NotionPage({
         fullPage={!isLiteMode}
         previewImages={!!recordMap.preview_images}
         showCollectionViewDropdown={false}
-        showTableOfContents={showTableOfContents}
+        showTableOfContents={false}
         minTableOfContentsItems={minTableOfContentsItems}
         defaultPageIcon={config.defaultPageIcon}
         defaultPageCover={config.defaultPageCover}
@@ -327,8 +320,6 @@ export function NotionPage({
         pageAside={pageAside}
         footer={footer}
       />
-
-      <GitHubShareButton />
     </>
   )
 }
